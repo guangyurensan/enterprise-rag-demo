@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>企业知识库问答</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="layout">
+  <!-- 侧边导航 -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">KB</div>
+      <div class="brand-text">
+        <div class="brand-name">企业知识库</div>
+        <div class="brand-sub">智能问答系统</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <button class="nav-item active" data-view="chat">
+        <span class="nav-icon">💬</span>智能问答
+      </button>
+      <button class="nav-item" data-view="docs">
+        <span class="nav-icon">📁</span>文档管理
+      </button>
+      <button class="nav-item" data-view="ops">
+        <span class="nav-icon">📡</span>运维状态
+      </button>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="role-box" id="userBox" style="display:none">
+        <div class="user-avatar" id="userAvatar">员</div>
+        <div class="user-meta">
+          <div class="user-name" id="userDisplayName">—</div>
+          <div class="user-role" id="userRoleLabel">—</div>
+        </div>
+        <button class="btn btn-sm" id="logoutBtn" title="退出登录">退出</button>
+      </div>
+      <div class="svc-status" id="svcDot"><span class="dot dot-ok"></span><span id="svcText">检测中…</span></div>
+    </div>
+  </aside>
+
+  <!-- 主区域 -->
+  <main class="main">
+    <!-- ============ 视图：智能问答 ============ -->
+    <section class="view" id="view-chat">
+      <header class="view-head">
+        <h1>智能问答</h1>
+        <p class="view-desc">基于企业知识库检索生成回答，回答均附来源引用</p>
+      </header>
+      <div class="chat-wrap">
+        <div class="chat-scroll" id="chatScroll">
+          <div class="chat-welcome" id="chatWelcome">
+            <div class="welcome-icon">💡</div>
+            <h2>有什么可以帮您？</h2>
+            <p>支持咨询公司制度、流程、人事、财务等知识，例如：</p>
+            <div class="sug-row">
+              <button class="sug" data-q="入职第一天要带什么材料？">入职第一天要带什么材料？</button>
+              <button class="sug" data-q="差旅住宿费报销标准是多少？">差旅住宿报销标准？</button>
+              <button class="sug" data-q="年假有几天，怎么申请？">年假有几天怎么申请？</button>
+              <button class="sug" data-q="采购超过多少金额需要比价？">采购比价金额门槛？</button>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-bar">
+          <textarea id="chatInput" rows="1" placeholder="输入您的问题，Enter 发送 / Shift+Enter 换行"></textarea>
+          <button id="sendBtn" class="btn btn-primary" title="发送">发送</button>
+        </div>
+        <div class="chat-footnote" id="chatFootnote"></div>
+      </div>
+    </section>
+
+    <!-- ============ 视图：文档管理 ============ -->
+    <section class="view hidden" id="view-docs">
+      <header class="view-head">
+        <h1>文档管理</h1>
+        <p class="view-desc" id="docSummary">知识库文档列表</p>
+      </header>
+      <div class="doc-toolbar">
+        <div class="upload-box">
+          <input type="file" id="fileInput" hidden>
+          <button class="btn btn-primary" id="uploadBtn">＋ 上传文档</button>
+          <input type="text" id="tagsInput" class="input" placeholder="标签（可选，逗号分隔）">
+        </div>
+        <button class="btn" id="docRefreshBtn">刷新</button>
+      </div>
+      <div class="upload-notice hidden" id="uploadNotice"></div>
+      <div class="table-card">
+        <table class="table">
+          <thead>
+            <tr><th>文档名称</th><th>版本</th><th>密级</th><th>知识块</th><th>入库时间</th><th style="width:80px">操作</th></tr>
+          </thead>
+          <tbody id="docTbody">
+            <tr><td colspan="5" class="td-empty">加载中…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 视图：运维状态 ============ -->
+    <section class="view hidden" id="view-ops">
+      <header class="view-head">
+        <h1>运维状态</h1>
+        <p class="view-desc">服务健康与运行指标（每 15 秒自动刷新）</p>
+      </header>
+      <div class="ops-grid">
+        <div class="ops-card" id="healthCard">
+          <h3>服务健康</h3>
+          <div class="ops-body" id="healthBody">加载中…</div>
+        </div>
+        <div class="ops-card" id="vectorCard">
+          <h3>向量通道</h3>
+          <div class="ops-body" id="vectorBody">加载中…</div>
+        </div>
+        <div class="ops-card wide">
+          <h3>运行计数器</h3>
+          <div class="ops-body" id="counterBody">加载中…</div>
+        </div>
+        <div class="ops-card wide">
+          <h3>审计概览（今日）</h3>
+          <div class="ops-body" id="auditBody">加载中…</div>
+        </div>
+        <div class="ops-card wide">
+          <h3>延迟指标</h3>
+          <div class="ops-body" id="latencyBody">加载中…</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast hidden" id="toast"></div>
+
+<!-- 登录层（SSO 地基：身份由服务端令牌决定，不再前端切换角色） -->
+<div class="login-mask hidden" id="loginMask">
+  <div class="login-card">
+    <div class="brand" style="justify-content:center;margin-bottom:18px">
+      <div class="brand-logo">KB</div>
+      <div class="brand-text">
+        <div class="brand-name">企业知识库</div>
+        <div class="brand-sub">账号登录</div>
+      </div>
+    </div>
+    <div class="login-field">
+      <label for="loginUsername">用户名</label>
+      <input type="text" id="loginUsername" class="input" autocomplete="username" placeholder="如 employee">
+    </div>
+    <div class="login-field">
+      <label for="loginPassword">密码</label>
+      <input type="password" id="loginPassword" class="input" autocomplete="current-password" placeholder="">
+    </div>
+    <div class="login-error hidden" id="loginError"></div>
+    <button class="btn btn-primary login-btn" id="loginBtn">登 录</button>
+    <div class="login-hint">演示账号：admin / manager / employee / guest，初始密码为 用户名+123</div>
+  </div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

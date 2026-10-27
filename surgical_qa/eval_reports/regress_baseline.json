@@ -1,0 +1,24 @@
+{
+  "seed_v2": {
+    "recall": 1.0,
+    "mrr": 0.9038,
+    "latency_ms": 767.7,
+    "missing_expectation": 0,
+    "empty_expectation": 0
+  },
+  "persona": {
+    "recall": 0.9344,
+    "mrr": 0.7874,
+    "refusal_rate": 1.0,
+    "acl_pass_rate": 1.0,
+    "latency_ms": 799.0,
+    "missing_expectation": 0,
+    "empty_expectation": 0
+  },
+  "judge": {
+    "grounded": 0.9231,
+    "faithfulness": 99.3,
+    "completeness": 92.2,
+    "citation_ok": 1.0
+  }
+}

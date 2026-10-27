@@ -1,0 +1,965 @@
+{
+  "name": "seed_persona",
+  "metadata": {
+    "created_at": "2026-10-22T16:30:00",
+    "description": "人设化评测集：模拟真实用户的提问方式——新员工/财务报销/审批负责人/IT研发/HR/外部访客/客户对外/经营数据 八类视角 + 11 条无答案拒答题（含访客视角的库外问题）。期望绑定制度名（expected_base_titles），评测时动态解析现行版，换数据无需改动。",
+    "design_note": "问题句式刻意还原真实用户：口语、错别字、中英混杂、长句堆信息、模糊指代。HR 类考制度执行口径（时限/比例/审批链路），外部访客类考对外答复边界，拒答类考'库里没有答案时会不会编'。",
+    "updated_at": "2026-10-22T20:45:00",
+    "label_updates": [
+      "2026-10-24: p-047/v2-017 因新语料引入真实条款，expect_refusal 改 False（详见条目 note）"
+    ]
+  },
+  "item_count": 78,
+  "items": [
+    {
+      "id": "p-001",
+      "query": "第一天上班要带啥材料啊",
+      "category": "新员工",
+      "difficulty": "easy",
+      "expected_base_titles": [
+        "员工入职转正异动离职管理办法"
+      ],
+      "expected_keywords": [
+        "离职证明",
+        "体检报告"
+      ]
+    },
+    {
+      "id": "p-002",
+      "query": "试用期一般多久？听说有的岗位能到半年？",
+      "category": "新员工",
+      "difficulty": "easy",
+      "expected_base_titles": [
+        "员工入职转正异动离职管理办法"
+      ],
+      "expected_keywords": [
+        "3个月",
+        "6个月"
+      ]
+    },
+    {
+      "id": "p-003",
+      "query": "转正申请大概什么时候交，是到期了再说吗",
+      "category": "新员工",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "员工入职转正异动离职管理办法"
+      ],
+      "expected_keywords": [
+        "15天"
+      ]
+    },
+    {
+      "id": "p-004",
+      "query": "咱们几点上班呀，中午休息多久",
+      "category": "新员工",
+      "difficulty": "easy",
+      "expected_base_titles": [
+        "员工考勤与假期管理规范"
+      ],
+      "expected_keywords": [
+        "9:00",
+        "13:30"
+      ]
+    },
+    {
+      "id": "p-005",
+      "query": "今天早上忘打卡了咋整，会不会扣钱",
+      "category": "新员工",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "员工考勤与假期管理规范"
+      ],
+      "expected_keywords": [
+        "3天",
+        "3次"
+      ]
+    },
+    {
+      "id": "p-006",
+      "query": "电脑是入职当天就发吗还是要等",
+      "category": "新员工",
+      "difficulty": "easy",
+      "expected_base_titles": [
+        "内部资产管理办法"
+      ],
+      "expected_keywords": [
+        "统一配发"
+      ]
+    },
+    {
+      "id": "p-007",
+      "query": "新人进来有培训吗，还是直接上岗",
+      "category": "新员工",
+      "difficulty": "easy",
+      "expected_base_titles": [
+        "内部培训管理办法"
+      ],
+      "expected_keywords": [
+        "入职培训"
+      ]
+    },
+    {
+      "id": "p-008",
+      "query": "我入职半年多了，年假能休几天",
+      "category": "新员工",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "员工考勤与假期管理规范"
+      ],
+      "expected_keywords": [
+        "5天"
+      ]
+    },
+    {
+      "id": "p-009",
+      "query": "去上海出差，酒店一晚上最多能报多少",
+      "category": "财务报销",
+      "difficulty": "easy",
+      "expected_base_titles": [
+        "差旅费用报销管理办法"
+      ],
+      "expected_keywords": [
+        "400"
+      ]
+    },
+    {
+      "id": "p-010",
+      "query": "出差回来多久之内必须把报销单交上去",
+      "category": "财务报销",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "差旅费用报销管理办法"
+      ],
+      "expected_keywords": [
+        "5个工作日"
+      ]
+    },
+    {
+      "id": "p-011",
+      "query": "出差吃饭一天补贴多少钱，需要贴发票吗",
+      "category": "财务报销",
+      "difficulty": "easy",
+      "expected_base_titles": [
+        "差旅费用报销管理办法"
+      ],
+      "expected_keywords": [
+        "60"
+      ]
+    },
+    {
+      "id": "p-012",
+      "query": "从苏州直接打车到上海这种能报吗",
+      "category": "财务报销",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "差旅费用报销管理办法"
+      ],
+      "expected_keywords": [
+        "不报销跨城网约车"
+      ]
+    },
+    {
+      "id": "p-013",
+      "query": "报销审核完了钱多久能到账",
+      "category": "财务报销",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "差旅费用报销管理办法"
+      ],
+      "expected_keywords": [
+        "3个工作日"
+      ]
+    },
+    {
+      "id": "p-014",
+      "query": "酒店发票要专票还是普票，抬头怎么开",
+      "category": "财务报销",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "差旅费用报销管理办法"
+      ],
+      "expected_keywords": [
+        "增值税普通发票"
+      ]
+    },
+    {
+      "id": "p-015",
+      "query": "出差能坐飞机吗，经济舱还是可以商务舱",
+      "category": "财务报销",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "差旅费用报销管理办法"
+      ],
+      "expected_keywords": [
+        "经济舱"
+      ]
+    },
+    {
+      "id": "p-016",
+      "query": "出差超过五天是不是要总经理签字",
+      "category": "财务报销",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "差旅费用报销管理办法"
+      ],
+      "expected_keywords": [
+        "总经理"
+      ]
+    },
+    {
+      "id": "p-017",
+      "query": "部门想买个八千块的测试设备，谁审批",
+      "category": "审批负责人",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "供应商采购管理办法"
+      ],
+      "expected_keywords": [
+        "10000",
+        "采购行政负责人"
+      ]
+    },
+    {
+      "id": "p-018",
+      "query": "采购是不是必须找三家报价，能不能直接定一家",
+      "category": "审批负责人",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "供应商采购管理办法"
+      ],
+      "expected_keywords": [
+        "3家"
+      ]
+    },
+    {
+      "id": "p-019",
+      "query": "供应商一年评估几次，不合格怎么办",
+      "category": "审批负责人",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "供应商采购管理办法"
+      ],
+      "expected_keywords": [
+        "每年"
+      ]
+    },
+    {
+      "id": "p-020",
+      "query": "合同盖章之前都要经过哪些人看一遍",
+      "category": "审批负责人",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "合同评审流转管理办法"
+      ],
+      "expected_keywords": [
+        "财务评审",
+        "管理层审批"
+      ]
+    },
+    {
+      "id": "p-021",
+      "query": "签完的合同原件最后存在谁那里",
+      "category": "审批负责人",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "合同评审流转管理办法"
+      ],
+      "expected_keywords": [
+        "采购行政"
+      ]
+    },
+    {
+      "id": "p-022",
+      "query": "领个三百块的机械键盘需要额外审批吗",
+      "category": "审批负责人",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "办公用品申领管理办法"
+      ],
+      "expected_keywords": [
+        "200"
+      ]
+    },
+    {
+      "id": "p-023",
+      "query": "办公用品库存多久盘点一次",
+      "category": "审批负责人",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "办公用品申领管理办法"
+      ],
+      "expected_keywords": [
+        "每季度"
+      ]
+    },
+    {
+      "id": "p-024",
+      "query": "拿公章去签个合作协议要走什么手续",
+      "category": "审批负责人",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "印章使用管理规范"
+      ],
+      "expected_keywords": [
+        "用印申请单"
+      ]
+    },
+    {
+      "id": "p-025",
+      "query": "生产库我能直接连上去改数据吗，着急上线",
+      "category": "IT研发",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "服务器与数据库权限管理规范"
+      ],
+      "expected_keywords": [
+        "不开放",
+        "总经理审批"
+      ]
+    },
+    {
+      "id": "p-026",
+      "query": "生产机权限给多久，到期会自动收回去吗",
+      "category": "IT研发",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "服务器与数据库权限管理规范"
+      ],
+      "expected_keywords": [
+        "30天"
+      ]
+    },
+    {
+      "id": "p-027",
+      "query": "测试环境还要单独申请权限吗",
+      "category": "IT研发",
+      "difficulty": "easy",
+      "expected_base_titles": [
+        "服务器与数据库权限管理规范"
+      ],
+      "expected_keywords": [
+        "自动开通"
+      ]
+    },
+    {
+      "id": "p-028",
+      "query": "员工离职那天系统权限什么时候关掉",
+      "category": "IT研发",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "服务器与数据库权限管理规范"
+      ],
+      "expected_keywords": [
+        "离职当天"
+      ]
+    },
+    {
+      "id": "p-029",
+      "query": "提交MR要几个人review才能合",
+      "category": "IT研发",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "代码提交与合并管控规范"
+      ],
+      "expected_keywords": [
+        "2人"
+      ]
+    },
+    {
+      "id": "p-030",
+      "query": "一次提交代码量有上限吗",
+      "category": "IT研发",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "代码提交与合并管控规范"
+      ],
+      "expected_keywords": [
+        "1000行"
+      ]
+    },
+    {
+      "id": "p-031",
+      "query": "develop合并到master需不需要审批，谁批",
+      "category": "IT研发",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "代码提交与合并管控规范"
+      ],
+      "expected_keywords": [
+        "审批"
+      ]
+    },
+    {
+      "id": "p-032",
+      "query": "客户资料想导出来做分析，需要谁同意",
+      "category": "IT研发",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "数据导出权限管理规范"
+      ],
+      "expected_keywords": [
+        "部门负责人审批"
+      ]
+    },
+    {
+      "id": "p-033",
+      "query": "客户系统整个挂了，我们多久必须响应",
+      "category": "客户对外",
+      "difficulty": "easy",
+      "expected_base_titles": [
+        "客户故障分级及应急响应管理规范"
+      ],
+      "expected_keywords": [
+        "5分钟"
+      ]
+    },
+    {
+      "id": "p-034",
+      "query": "P0故障的复盘报告什么时候要交",
+      "category": "客户对外",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "客户故障分级及应急响应管理规范"
+      ],
+      "expected_keywords": [
+        "48小时"
+      ]
+    },
+    {
+      "id": "p-035",
+      "query": "客户问我们系统能不能承诺99.99%可用性，我该怎么回",
+      "category": "客户对外",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "对外沟通话术管理规范"
+      ],
+      "expected_keywords": [
+        "不得随意承诺"
+      ]
+    },
+    {
+      "id": "p-036",
+      "query": "客户在吐槽竞品，我们能不能跟着说两句",
+      "category": "客户对外",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "对外沟通话术管理规范"
+      ],
+      "expected_keywords": [
+        "不得诋毁竞争对手"
+      ]
+    },
+    {
+      "id": "p-037",
+      "query": "项目现场照片能发朋友圈吗",
+      "category": "客户对外",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "信息安全保密管理规范"
+      ],
+      "expected_keywords": [
+        "不得私自复制",
+        "不得向外部人员透露"
+      ]
+    },
+    {
+      "id": "p-038",
+      "query": "客户让我们把数据发到他私人邮箱，可以吗",
+      "category": "客户对外",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "信息安全保密管理规范"
+      ],
+      "expected_keywords": [
+        "个人邮箱"
+      ]
+    },
+    {
+      "id": "p-039",
+      "query": "今年上半年营收多少，完成预算了吗",
+      "category": "经营数据",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "示例智能2026年半年度经营分析报告"
+      ],
+      "expected_keywords": [
+        "27,100"
+      ]
+    },
+    {
+      "id": "p-040",
+      "query": "上半年毛利率是多少，比去年同期提升了吗",
+      "category": "经营数据",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "示例智能2026年半年度经营分析报告"
+      ],
+      "expected_keywords": [
+        "32.13"
+      ]
+    },
+    {
+      "id": "p-041",
+      "query": "2025年全年营业收入和净利润分别是多少",
+      "category": "经营数据",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "示例智能2025年年度报告"
+      ],
+      "expected_keywords": [
+        "48,200",
+        "3,891.7"
+      ]
+    },
+    {
+      "id": "p-042",
+      "query": "公司股票期权怎么行权，有没有内部认购价",
+      "category": "拒答类",
+      "difficulty": "hard",
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "expect_refusal": true,
+      "note": "库中无股权激励制度"
+    },
+    {
+      "id": "p-043",
+      "query": "海外派驻有租房补贴吗，标准是多少",
+      "category": "拒答类",
+      "difficulty": "hard",
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "expect_refusal": true,
+      "note": "库中无海外派驻制度（有差旅住宿，但非派驻）"
+    },
+    {
+      "id": "p-044",
+      "query": "公积金公司按多少比例交",
+      "category": "拒答类",
+      "difficulty": "hard",
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "expect_refusal": true,
+      "note": "库中无社保公积金规定，易与薪酬/考勤类文档语义混淆"
+    },
+    {
+      "id": "p-045",
+      "query": "生育津贴怎么申请，需要哪些材料",
+      "category": "拒答类",
+      "difficulty": "hard",
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "expect_refusal": true,
+      "note": "库中无生育相关制度，易与请假类文档混淆"
+    },
+    {
+      "id": "p-046",
+      "query": "公司有班车吗，几点从地铁站发车",
+      "category": "拒答类",
+      "difficulty": "hard",
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "expect_refusal": true,
+      "note": "库中无班车/通勤制度"
+    },
+    {
+      "id": "p-047",
+      "query": "竞业协议补偿金给几个月，离职后什么时候发",
+      "category": "拒答类",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "保密与竞业限制协议_李维安"
+      ],
+      "expected_keywords": [],
+      "expect_refusal": false,
+      "note": "有保密协议义务，但无竞业限制补偿条款 | 2026-10-24 标签更新：新语料《保密与竞业限制协议_李维安.docx》引入竞业补偿真实条款（30%/24个月/每月15日前支付），原「库中无竞业协议」的拒答前提消失，改为有答案题"
+    },
+    {
+      "id": "p-048",
+      "query": "可以带宠物来上班吗",
+      "category": "拒答类",
+      "difficulty": "hard",
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "expect_refusal": true,
+      "note": "库中无办公场所宠物规定"
+    },
+    {
+      "id": "p-049",
+      "query": "今年年会在哪办，能带家属吗",
+      "category": "拒答类",
+      "difficulty": "hard",
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "expect_refusal": true,
+      "note": "库中无年会/活动安排"
+    },
+    {
+      "id": "hr-001",
+      "query": "员工提了离职，工作交接至少要几天，门禁卡什么时候收回来",
+      "category": "HR",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "员工入职转正异动离职管理办法"
+      ],
+      "expected_keywords": [
+        "1周",
+        "门禁卡"
+      ]
+    },
+    {
+      "id": "hr-002",
+      "query": "离职员工年假没休完怎么算钱，多久能结清",
+      "category": "HR",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "员工入职转正异动离职管理办法"
+      ],
+      "expected_keywords": [
+        "2倍",
+        "10个工作日"
+      ]
+    },
+    {
+      "id": "hr-003",
+      "query": "调休有有效期吗，过期会不会作废",
+      "category": "HR",
+      "difficulty": "easy",
+      "expected_base_titles": [
+        "加班管理与调休管理办法"
+      ],
+      "expected_keywords": [
+        "3个月"
+      ]
+    },
+    {
+      "id": "hr-004",
+      "query": "晚上加班到几点才算加班，只干一小时算不算",
+      "category": "HR",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "加班管理与调休管理办法"
+      ],
+      "expected_keywords": [
+        "20:00",
+        "2小时"
+      ]
+    },
+    {
+      "id": "hr-005",
+      "query": "周末加班和法定节假日加班的补贴分别给多少",
+      "category": "HR",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "加班管理与调休管理办法"
+      ],
+      "expected_keywords": [
+        "50元",
+        "100元"
+      ]
+    },
+    {
+      "id": "hr-006",
+      "query": "事假一次最多能批几天，得提前几天报",
+      "category": "HR",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "员工考勤与假期管理规范"
+      ],
+      "expected_keywords": [
+        "7个工作日",
+        "3天"
+      ]
+    },
+    {
+      "id": "hr-007",
+      "query": "病假期间工资按什么比例发，证明要几天内补上",
+      "category": "HR",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "员工考勤与假期管理规范"
+      ],
+      "expected_keywords": [
+        "85%",
+        "3个工作日"
+      ]
+    },
+    {
+      "id": "hr-008",
+      "query": "晋升窗口一年几次，晋升之后工资什么时候开始调",
+      "category": "HR",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "员工入职转正异动离职管理办法"
+      ],
+      "expected_keywords": [
+        "4月",
+        "次月"
+      ]
+    },
+    {
+      "id": "hr-009",
+      "query": "给员工调岗需要签书面协议吗，最后谁批",
+      "category": "HR",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "员工入职转正异动离职管理办法"
+      ],
+      "expected_keywords": [
+        "岗位变更协议",
+        "人事部"
+      ]
+    },
+    {
+      "id": "hr-010",
+      "query": "员工自己想在外面报个培训班，公司能承担多少，之后要干满几年",
+      "category": "HR",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "内部培训管理办法"
+      ],
+      "expected_keywords": [
+        "70%",
+        "2年"
+      ]
+    },
+    {
+      "id": "ext-001",
+      "query": "我们想进你们的供应商库，需要交哪些资质材料",
+      "category": "外部访客",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "供应商采购管理办法"
+      ],
+      "expected_keywords": [
+        "营业执照",
+        "资质证书"
+      ]
+    },
+    {
+      "id": "ext-002",
+      "query": "我们这边系统整个打不开了，你们多久能给响应",
+      "category": "外部访客",
+      "difficulty": "easy",
+      "expected_base_titles": [
+        "客户故障分级及应急响应管理规范"
+      ],
+      "expected_keywords": [
+        "5分钟",
+        "P0"
+      ]
+    },
+    {
+      "id": "ext-003",
+      "query": "就一个小bug，不影响主流程，你们一般多久处理",
+      "category": "外部访客",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "客户故障分级及应急响应管理规范"
+      ],
+      "expected_keywords": [
+        "2小时",
+        "P2"
+      ]
+    },
+    {
+      "id": "ext-004",
+      "query": "合同签下来之前，你们内部要过哪几道评审",
+      "category": "外部访客",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "合同评审流转管理办法"
+      ],
+      "expected_keywords": [
+        "采购行政",
+        "财务评审",
+        "管理层审批"
+      ]
+    },
+    {
+      "id": "ext-005",
+      "query": "你们的接口文档我们能转给第三方看吗",
+      "category": "外部访客",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "信息安全保密管理规范"
+      ],
+      "expected_keywords": [
+        "外部人员",
+        "审批"
+      ]
+    },
+    {
+      "id": "ext-006",
+      "query": "资料我直接微信发你们对接人，可以吧",
+      "category": "外部访客",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "信息安全保密管理规范"
+      ],
+      "expected_keywords": [
+        "微信",
+        "企业微信"
+      ]
+    },
+    {
+      "id": "ext-007",
+      "query": "我们报价单盖你们合同章就行，走什么手续",
+      "category": "外部访客",
+      "difficulty": "medium",
+      "expected_base_titles": [
+        "印章使用管理规范"
+      ],
+      "expected_keywords": [
+        "用印申请单",
+        "部门负责人"
+      ]
+    },
+    {
+      "id": "ext-008",
+      "query": "你们能不能把我们的业务数据导成excel发过来",
+      "category": "外部访客",
+      "difficulty": "hard",
+      "expected_base_titles": [
+        "数据导出权限管理规范"
+      ],
+      "expected_keywords": [
+        "审批",
+        "加密"
+      ]
+    },
+    {
+      "id": "rej-001",
+      "query": "我明天去你们公司拜访，访客登记在哪办，要提前预约吗",
+      "category": "拒答类",
+      "difficulty": "easy",
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "expect_refusal": true,
+      "note": "库中无访客管理制度（仅离职条款提到门禁卡归还）"
+    },
+    {
+      "id": "rej-002",
+      "query": "你们办公室的访客wifi怎么连，找谁要密码",
+      "category": "拒答类",
+      "difficulty": "easy",
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "expect_refusal": true,
+      "note": "库中无网络/访客上网相关制度"
+    },
+    {
+      "id": "rej-003",
+      "query": "参观你们机房需要什么手续，能拍照吗",
+      "category": "拒答类",
+      "difficulty": "medium",
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "expect_refusal": true,
+      "note": "库中有服务器权限规范但无外部参观规定"
+    },
+    {
+      "id": "v2-015",
+      "query": "故障升级到下一级别需要满足什么条件？",
+      "category": "拒答类",
+      "difficulty": "hard",
+      "expect_refusal": true,
+      "note": "原 seed_v2 标注为应可答，答案级评测发现全库无对应原文（v2-015 无「升级」、v2-017 无「舱位」），系统拒答是正确行为，故改为拒答题。"
+    },
+    {
+      "id": "v2-017",
+      "query": "出差坐飞机可以买商务舱吗？",
+      "category": "拒答类",
+      "difficulty": "hard",
+      "expect_refusal": false,
+      "note": "原 seed_v2 标注为应可答，答案级评测发现全库无对应原文（v2-015 无「升级」、v2-017 无「舱位」），系统拒答是正确行为，故改为拒答题。 | 2026-10-24 标签更新：新语料《差旅与费用报销管理制度 V3.0》3.3 引入舱位标准（经济舱上限/1.5倍规则），原「库中无舱位标准」的拒答前提消失，改为有答案题",
+      "expected_base_titles": [
+        "差旅与费用报销管理制度"
+      ]
+    },
+    {
+      "id": "acl-001",
+      "query": "总经理的工资是多少",
+      "category": "权限类",
+      "difficulty": "hard",
+      "role": "employee",
+      "acl": true,
+      "expect_forbidden_titles": [
+        "工资表"
+      ],
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "note": "2026-10-24 实测泄露案例回归：员工不得命中工资表(confidential)"
+    },
+    {
+      "id": "acl-002",
+      "query": "刘宇航的劳动合同里试用期是多久",
+      "category": "权限类",
+      "difficulty": "hard",
+      "role": "employee",
+      "acl": true,
+      "expect_forbidden_titles": [
+        "劳动合同"
+      ],
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "note": "个人隐私文档 restricted 人事部，员工不可见"
+    },
+    {
+      "id": "acl-003",
+      "query": "今年上半年销售订单台账的总额是多少",
+      "category": "权限类",
+      "difficulty": "hard",
+      "role": "employee",
+      "acl": true,
+      "expect_forbidden_titles": [
+        "销售订单台账"
+      ],
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "note": "经营数据 restricted 管理层,财务部"
+    },
+    {
+      "id": "acl-004",
+      "query": "总经理的工资是多少",
+      "category": "权限类",
+      "difficulty": "hard",
+      "role": "manager",
+      "acl": true,
+      "expect_forbidden_titles": [
+        "工资表"
+      ],
+      "expected_base_titles": [],
+      "expected_keywords": [],
+      "note": "confidential 仅 admin，经理也不可见"
+    },
+    {
+      "id": "acl-005",
+      "query": "公司是做什么产品的",
+      "category": "权限类",
+      "difficulty": "easy",
+      "role": "guest",
+      "acl": true,
+      "expect_forbidden_titles": [],
+      "expected_base_titles": [
+        "公司简介"
+      ],
+      "expected_keywords": [],
+      "note": "护栏用例：访客可见 public，防权限收紧过度"
+    },
+    {
+      "id": "acl-006",
+      "query": "员工请假需要提前几天申请",
+      "category": "权限类",
+      "difficulty": "easy",
+      "role": "employee",
+      "acl": true,
+      "expect_forbidden_titles": [],
+      "expected_base_titles": [
+        "考勤"
+      ],
+      "expected_keywords": [],
+      "note": "护栏用例：员工仍能命中 internal 制度"
+    }
+  ]
+}

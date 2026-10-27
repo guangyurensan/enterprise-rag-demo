@@ -1,0 +1,32 @@
+# 企业知识库问答系统（RAG）依赖清单
+# Python >= 3.10
+# 安装: pip install -r requirements.txt
+
+# ---- Web 服务层 ----
+fastapi>=0.115
+uvicorn>=0.34
+python-multipart>=0.0.9
+gradio>=5.0            # Gradio 兼容界面（surgical_qa/app.py）
+
+# ---- 向量库 ----
+pymilvus>=3.0
+
+# ---- LLM 与模型服务 ----
+openai>=1.50           # DeepSeek 与 OpenAI 兼容接口
+dashscope>=1.22        # DashScope: embedding / qwen3-rerank
+agently>=4.1           # 结构化输出契约层（task_executor）
+
+# ---- 检索与处理 ----
+jieba>=0.42            # 中文分词（BM25）
+numpy>=2.0
+requests>=2.31
+
+# ---- 可选：文档解析增强（缺失时对应格式降级，txt/csv/md 无需额外依赖）----
+# xlsx 单元格级解析（保留表头、合并单元格）：pip install openpyxl
+# docx/pdf/pptx/html 通用解析：pip install "unstructured[all-docs]"
+
+# ---- 数据校验 ----
+pydantic>=2.7
+
+# ---- 开发/测试 ----
+pytest>=8.0

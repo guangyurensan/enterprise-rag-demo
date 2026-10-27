@@ -1,0 +1,81 @@
+# ---- 运行时数据与索引（体积大、可重建，不入库）----
+volumes/
+models/
+parsed_cache/
+parsed_cache_orphan_backup_*/
+audit_logs/
+dead_letters/
+manual_retry/
+pipeline_logs/
+surgical_qa/eval_reports/*
+# 例外：门禁基线是仓库资产（与代码一起分发，否则新克隆没有对比基准）
+!surgical_qa/eval_reports/regress_baseline.json
+/eval_reports/
+*.db
+*.sqlite
+*.faiss
+
+# registry 手动备份（每次治理前会产生一份，误入库会让历史变脏）
+*.bak_*
+*.bak
+
+# 问答缓存：每次提问都会改写，入库后每次 diff 都是噪声
+surgical_qa/cache/
+
+# ---- 密钥与本地配置 ----
+.env
+.env.*
+*.local
+secrets.json
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# ---- 编辑器 / 系统 ----
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ---- 分词训练语料（可由原文重建，81M）----
+segment/
+stress_corpus/
+
+# ---- 运行时台账与用户数据（含本地路径与账号信息，不入库）----
+surgical_qa/document_store/
+!surgical_qa/document_store/.gitkeep
+surgical_qa/auth_users.json
+surgical_qa/auth_secret.key
+surgical_qa/auth_revoked.json
+_affected_docx.json
+*_affected_*.json
+
+# ---- 内部调研与归档（不属于开源代码主体）----
+AGENTLY.md
+archive/
+.trae/
+logs/
+
+# ---- 工作区遗留 ----
+*.tmp
+nul
+
+# ---- 派生知识数据（按真实数据严谨对待，不入库）----
+surgical_qa/knowledge_base/
+surgical_qa/eval_sets/xy_enterprise.json
+
+
+# ---- 旧版评测数据文件（被 seed_v2 取代，数据不入库）----
+eval_set_v1.xlsx
+
+# ---- 索引版本快照与旧版评测集（运行时状态/已取代）----
+surgical_qa/versions/
+surgical_qa/eval_sets/seed.json
+
+# ---- 外部数据集转换脚本（依赖外部数据，不入库）----
+convert_xy_testset.py

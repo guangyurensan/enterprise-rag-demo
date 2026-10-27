@@ -1,0 +1,382 @@
+{
+  "name": "seed_v2",
+  "metadata": {
+    "created_at": "2026-10-22T12:30:00",
+    "description": "版本感知评估集v2：绑定制度名(expected_base_titles)而非doc_id，评测时动态解析现行版，换数据照样可用。类型覆盖：单跳/口语化/多版本对照/否定边界/表格数值/干扰密集/跨条件。",
+    "usage_note": "多版本对照类(item含version_probe=true)专测版本治理：期望命中现行版文档，召回旧版即recall=0",
+    "updated_at": "2026-10-22T20:45:00",
+    "change_note": "移除 v2-015/v2-017：全库 237 块扫描确认无「升级」「舱位」相关原文，原「应可答」标注错误（答案级评测反向发现），已移入 persona 集作拒答题。"
+  },
+  "item_count": 26,
+  "items": [
+    {
+      "id": "v2-001",
+      "query": "请假怎么申请？",
+      "expected_base_titles": [
+        "示例OA请假申请操作SOP",
+        "员工考勤与假期管理规范"
+      ],
+      "expected_keywords": [
+        "请假",
+        "审批",
+        "流程"
+      ],
+      "category": "人事",
+      "difficulty": "easy"
+    },
+    {
+      "id": "v2-002",
+      "query": "新员工入职需要带哪些材料？",
+      "expected_base_titles": [
+        "员工入职转正异动离职管理办法"
+      ],
+      "expected_keywords": [
+        "入职",
+        "材料",
+        "身份证"
+      ],
+      "category": "人事",
+      "difficulty": "easy"
+    },
+    {
+      "id": "v2-003",
+      "query": "数据库root权限怎么申请？",
+      "expected_base_titles": [
+        "服务器与数据库权限管理规范"
+      ],
+      "expected_keywords": [
+        "权限",
+        "审批",
+        "申请"
+      ],
+      "category": "IT",
+      "difficulty": "easy"
+    },
+    {
+      "id": "v2-004",
+      "query": "数据导出需要走什么审批？",
+      "expected_base_titles": [
+        "数据导出权限管理规范"
+      ],
+      "expected_keywords": [
+        "导出",
+        "审批",
+        "申请"
+      ],
+      "category": "安全",
+      "difficulty": "easy"
+    },
+    {
+      "id": "v2-005",
+      "query": "客户P0级故障的响应时间是多久？",
+      "expected_base_titles": [
+        "客户故障分级及应急响应管理规范"
+      ],
+      "expected_keywords": [
+        "P0",
+        "响应",
+        "故障"
+      ],
+      "category": "客户成功",
+      "difficulty": "easy"
+    },
+    {
+      "id": "v2-006",
+      "query": "采购需要经过哪些流程环节？",
+      "expected_base_titles": [
+        "供应商采购管理办法"
+      ],
+      "expected_keywords": [
+        "采购",
+        "供应商",
+        "审批"
+      ],
+      "category": "采购",
+      "difficulty": "easy"
+    },
+    {
+      "id": "v2-007",
+      "query": "不想干了怎么提离职？",
+      "expected_base_titles": [
+        "员工入职转正异动离职管理办法"
+      ],
+      "expected_keywords": [
+        "离职",
+        "申请",
+        "交接"
+      ],
+      "category": "口语化改写",
+      "difficulty": "medium"
+    },
+    {
+      "id": "v2-008",
+      "query": "周末加班了下次能补休吗？",
+      "expected_base_titles": [
+        "加班管理与调休管理办法"
+      ],
+      "expected_keywords": [
+        "调休",
+        "加班",
+        "补休"
+      ],
+      "category": "口语化改写",
+      "difficulty": "medium"
+    },
+    {
+      "id": "v2-009",
+      "query": "办公室的打印纸用完了去哪领？",
+      "expected_base_titles": [
+        "办公用品申领管理办法"
+      ],
+      "expected_keywords": [
+        "办公用品",
+        "申领",
+        "领用"
+      ],
+      "category": "口语化改写",
+      "difficulty": "medium"
+    },
+    {
+      "id": "v2-010",
+      "query": "盖公章的申请怎么走？",
+      "expected_base_titles": [
+        "印章使用管理规范"
+      ],
+      "expected_keywords": [
+        "印章",
+        "审批",
+        "用印"
+      ],
+      "category": "口语化改写",
+      "difficulty": "medium"
+    },
+    {
+      "id": "v2-011",
+      "query": "公司年假有几天？",
+      "expected_base_titles": [
+        "员工考勤与假期管理规范"
+      ],
+      "expected_keywords": [
+        "年假"
+      ],
+      "category": "版本对照",
+      "difficulty": "hard",
+      "version_probe": true,
+      "probe_note": "V2.1现行版答案为准，召回V1.0/V2.0即失败"
+    },
+    {
+      "id": "v2-012",
+      "query": "出差住宿费报销标准是多少钱一晚？",
+      "expected_base_titles": [
+        "差旅费用报销管理办法"
+      ],
+      "expected_keywords": [
+        "住宿",
+        "标准",
+        "报销"
+      ],
+      "category": "版本对照",
+      "difficulty": "hard",
+      "version_probe": true,
+      "probe_note": "V1.8现行版为准"
+    },
+    {
+      "id": "v2-013",
+      "query": "试用期有多长？",
+      "expected_base_titles": [
+        "员工入职转正异动离职管理办法"
+      ],
+      "expected_keywords": [
+        "试用期"
+      ],
+      "category": "版本对照",
+      "difficulty": "hard",
+      "version_probe": true
+    },
+    {
+      "id": "v2-014",
+      "query": "生产数据库的权限变更流程是什么？",
+      "expected_base_titles": [
+        "服务器与数据库权限管理规范"
+      ],
+      "expected_keywords": [
+        "权限",
+        "变更",
+        "审批"
+      ],
+      "category": "版本对照",
+      "difficulty": "hard",
+      "version_probe": true
+    },
+    {
+      "id": "v2-016",
+      "query": "机密数据导出的限制条件是什么？",
+      "expected_base_titles": [
+        "数据导出权限管理规范"
+      ],
+      "expected_keywords": [
+        "机密",
+        "导出",
+        "限制"
+      ],
+      "category": "版本对照",
+      "difficulty": "hard",
+      "version_probe": true
+    },
+    {
+      "id": "v2-018",
+      "query": "没有提前提报的加班还能申请调休吗？",
+      "expected_base_titles": [
+        "加班管理与调休管理办法"
+      ],
+      "expected_keywords": [
+        "加班",
+        "审批",
+        "补报"
+      ],
+      "category": "否定边界",
+      "difficulty": "hard"
+    },
+    {
+      "id": "v2-019",
+      "query": "机密数据可以随意发给外部合作方吗？",
+      "expected_base_titles": [
+        "信息安全保密管理规范",
+        "数据导出权限管理规范"
+      ],
+      "expected_keywords": [
+        "机密",
+        "保密",
+        "审批"
+      ],
+      "category": "否定边界",
+      "difficulty": "hard"
+    },
+    {
+      "id": "v2-020",
+      "query": "印章可以私自带出公司使用吗？",
+      "expected_base_titles": [
+        "印章使用管理规范"
+      ],
+      "expected_keywords": [
+        "印章",
+        "携带",
+        "外借"
+      ],
+      "category": "否定边界",
+      "difficulty": "medium"
+    },
+    {
+      "id": "v2-021",
+      "query": "2024年11月差旅报销的总额是多少？",
+      "expected_base_titles": [
+        "2024年11月差旅报销明细表"
+      ],
+      "expected_keywords": [
+        "差旅",
+        "报销",
+        "金额"
+      ],
+      "category": "表格数值",
+      "difficulty": "hard"
+    },
+    {
+      "id": "v2-022",
+      "query": "2025年度审计报告的关键审计事项有哪些？",
+      "expected_base_titles": [
+        "示例智能2025年度审计报告摘要"
+      ],
+      "expected_keywords": [
+        "审计",
+        "关键"
+      ],
+      "category": "表格数值",
+      "difficulty": "hard"
+    },
+    {
+      "id": "v2-023",
+      "query": "2026年上半年营业收入是多少？",
+      "expected_base_titles": [
+        "示例智能2026年半年度经营分析报告"
+      ],
+      "expected_keywords": [
+        "营业收入",
+        "收入"
+      ],
+      "category": "表格数值",
+      "difficulty": "hard"
+    },
+    {
+      "id": "v2-024",
+      "query": "项目立项需要哪些审批？",
+      "expected_base_titles": [
+        "项目立项管理规范"
+      ],
+      "expected_keywords": [
+        "立项",
+        "审批"
+      ],
+      "category": "干扰密集",
+      "difficulty": "hard",
+      "probe_note": "与验收规范同文异节，考察区分"
+    },
+    {
+      "id": "v2-025",
+      "query": "项目验收需要提交哪些材料？",
+      "expected_base_titles": [
+        "项目验收管理规范"
+      ],
+      "expected_keywords": [
+        "验收",
+        "材料",
+        "提交"
+      ],
+      "category": "干扰密集",
+      "difficulty": "hard",
+      "probe_note": "与立项规范同文异节，考察区分"
+    },
+    {
+      "id": "v2-026",
+      "query": "年假申请在OA系统里具体怎么操作？",
+      "expected_base_titles": [
+        "示例OA年假申请操作SOP",
+        "员工考勤与假期管理规范"
+      ],
+      "expected_keywords": [
+        "年假",
+        "OA",
+        "申请"
+      ],
+      "category": "跨文档",
+      "difficulty": "hard"
+    },
+    {
+      "id": "v2-027",
+      "query": "新员工入职当天需要签哪些文件？",
+      "expected_base_titles": [
+        "员工入职转正异动离职管理办法"
+      ],
+      "expected_keywords": [
+        "劳动合同",
+        "保密协议",
+        "签订"
+      ],
+      "category": "跨文档",
+      "difficulty": "medium"
+    },
+    {
+      "id": "v2-028",
+      "query": "代码合并到主分支需要满足什么条件？",
+      "expected_base_titles": [
+        "代码提交与合并管控规范"
+      ],
+      "expected_keywords": [
+        "合并",
+        "分支",
+        "评审"
+      ],
+      "category": "研发",
+      "difficulty": "medium"
+    }
+  ]
+}
